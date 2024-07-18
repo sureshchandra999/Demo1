@@ -1,2 +1,5 @@
-package com.suresh.suresh1.suresh2.suresh3.DesignPatterns.FactoryDesignPattern2;public interface Product {
+package com.suresh.suresh1.suresh2.suresh3.DesignPatterns.FactoryDesignPattern2;
+
+public interface Product {
+    void display();
 }

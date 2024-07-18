@@ -1,2 +1,12 @@
-package com.suresh.suresh1.suresh2.suresh3.DesignPatterns.FactoryDesignPattern2;public class ConcreteProductA {
+package com.suresh.suresh1.suresh2.suresh3.DesignPatterns.FactoryDesignPattern2;
+
+public class ConcreteProductA implements Product{
+    /**
+     *
+     */
+    @Override
+    public void display() {
+        System.out.println("This is Concrete Product A.");
+
+    }
 }

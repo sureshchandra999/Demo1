@@ -1,11 +1,11 @@
 package com.suresh.suresh1.suresh2.suresh3.DesignPatterns.FactoryDesignPatter3UsingAbstractClass;
 
-public class ConcreteFactoryC extends Factory{
+public class ConcreteFactoryD extends Factory{
     /**
      * @return
      */
     @Override
     public Product factoryMethod() {
-        return new ConcreteProductC();
+        return new ConcreteProductD();
     }
 }
