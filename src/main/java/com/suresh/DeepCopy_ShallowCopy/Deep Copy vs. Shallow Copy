@@ -1,0 +1,18 @@
+In Java, a deep copy is a process of creating a new instance of an object and recursively copying
+ all objects it references. This means that a deep copy duplicates not only the object itself
+  but also all the objects that are referenced by that object, directly or indirectly.
+  This is in contrast to a shallow copy, which only copies the object's reference variables,
+  not the objects they refer to.
+
+
+  Deep Copy vs. Shallow Copy
+  
+      Shallow Copy:
+          Copies all fields of the object.
+          For fields that are references to objects, the references are copied, but the objects themselves are not.
+          This means both the original and the copied object refer to the same instance of the referenced objects.
+
+      Deep Copy:
+          Copies all fields of the object.
+          For fields that are references to objects, it creates new instances of the referenced objects and copies their fields as well.
+          This means the original and the copied object refer to different instances of the referenced objects.
