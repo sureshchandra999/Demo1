@@ -1,0 +1,61 @@
+Comparable and Comparator::::
+-----------------------
+Comparable and Comparator are interfaces used to order the objects of user-defined classes.
+ The Comparable interface is used to define the natural ordering of objects,
+while the Comparator interface is used to define an external, custom ordering of objects.
+
+Comparable
+
+The Comparable interface is found in java.lang package and it has a
+single method compareTo(Object o). When a class implements Comparable,
+it must override this method to define how two objects of that class should be compared.
+
+Example of Comparable:
+
+import java.util.*;
+
+class Student implements Comparable<Student> {
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        return this.age - other.age; // Sorting by age
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 23));
+        students.add(new Student("Bob", 20));
+        students.add(new Student("Charlie", 25));
+
+        Collections.sort(students); // Sorting using Comparable
+        for (Student s : students) {
+            System.out.println(s);
+        }
+    }
+}
+
+
+
+

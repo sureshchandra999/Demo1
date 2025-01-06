@@ -1,0 +1,90 @@
+Pass By Value Vs Pass By Reference ij Java:
+===========================================
+
+Java is strictly "pass-by-value.
+
+However, this can be a bit confusing because when we pass an object to a method,
+we are passing the reference to that object by value.
+ This means that while the reference itself is passed by value,
+ it still points to the same object, and changes to the object's state within the method
+ will affect the original object.
+
+
+ To clarify this, let's look at some examples:
+ Primitive Data Types:::
+ =====================
+
+ When passing primitive data types, the value is directly passed to the method.
+
+ public class PrimitiveDataType {
+     public static void main(String[] args) {
+         int originalValue = 10;
+         modifyPrimitive(originalValue);
+         System.out.println("Original Value: " + originalValue); // Output: 10
+     }
+
+     public static void modifyPrimitive(int value) {
+         value = 20;
+     }
+ }
+
+ In this example:
+
+     The value of originalValue remains unchanged because modifyPrimitive receives a copy of originalValue.
+
+     Objects:::
+     =============
+
+     When passing objects, the reference to the object is passed by value.
+
+
+class MyObject {
+    int data;
+
+    MyObject(int data) {
+        this.data = data;
+    }
+}
+
+public class MyObjectClient {
+    public static void main(String[] args) {
+        MyObject obj = new MyObject(10);
+        modifyObject(obj);
+        System.out.println("Object Data: " + obj.data); // Output: 20
+    }
+
+    public static void modifyObject(MyObject obj) {
+        obj.data = 20; // Changes the state of the object that obj references
+    }
+}
+
+In this example:
+
+    The reference to obj is passed by value to the modifyObject method.
+    The method can modify the state of the object that the reference points to, so obj.data is changed to 20.
+
+
+Reassigning Object References::::
+======================================
+Reassigning the object reference within a method does not affect the original reference.
+
+class MyObject {
+    int data;
+
+    MyObject(int data) {
+        this.data = data;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyObject obj = new MyObject(10);
+        reassignObject(obj);
+        System.out.println("Object Data: " + obj.data); // Output: 10
+    }
+
+    public static void reassignObject(MyObject obj) {
+        obj = new MyObject(20); // This reassignment does not affect the original reference
+    }
+}
+

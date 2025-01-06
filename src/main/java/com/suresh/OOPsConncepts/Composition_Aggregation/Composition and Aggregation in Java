@@ -1,0 +1,128 @@
+
+
+Composition and Aggregation in Java
+
+Composition and Aggregation are both types of association that define how objects relate to each other,
+but they differ in the strength of the relationship and the lifecycle dependency between the associated objects.
+Composition
+
+Composition is a strong form of association where the contained object cannot exist without the container object.
+ If the container object is destroyed, the contained object is also destroyed. This implies a strong
+ lifecycle dependency.
+
+ Example of Composition:
+ class Engine {
+     private String type;
+
+     public Engine(String type) {
+         this.type = type;
+     }
+
+     public String getType() {
+         return type;
+     }
+
+     public void start() {
+         System.out.println("Engine starts.");
+     }
+ }
+
+ class Car {
+     private String model;
+     private Engine engine;
+
+     public Car(String model, String engineType) {
+         this.model = model;
+         this.engine = new Engine(engineType); // Car creates and owns the Engine
+     }
+
+     public void startCar() {
+         engine.start();
+         System.out.println("Car starts.");
+     }
+
+     public String getCarDetails() {
+         return "Car model: " + model + ", Engine type: " + engine.getType();
+     }
+ }
+
+ public class Main {
+     public static void main(String[] args) {
+         Car car = new Car("Tesla", "Electric");
+         System.out.println(car.getCarDetails());
+         car.startCar();
+     }
+ }
+
+n this example:
+
+    The Car class contains an instance of the Engine class.
+    The Car class is responsible for creating the Engine instance.
+    The Engine instance is part of the Car and will be destroyed when the Car is destroyed.
+
+    Aggregation:::::
+
+    Aggregation is a weaker form of association where the contained object can exist independently of the container object. The lifecycle of the contained object is not managed by the container object.
+
+    Example of Aggregation:
+
+class Address {
+    private String city;
+    private String state;
+
+    public Address(String city, String state) {
+        this.city = city;
+        this.state = state;
+    }
+
+    public String getAddressDetails() {
+        return city + ", " + state;
+    }
+}
+
+class Employee {
+    private String name;
+    private Address address;
+
+    public Employee(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public String getEmployeeDetails() {
+        return "Employee Name: " + name + ", Address: " + address.getAddressDetails();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Address address = new Address("New York", "NY");
+        Employee employee = new Employee("John Doe", address);
+        System.out.println(employee.getEmployeeDetails());
+    }
+}
+
+In this example:
+
+    The Employee class contains a reference to an Address object.
+    The Address instance is created outside the Employee class and is passed as an argument to the Employee constructor.
+    The Address instance can exist independently of the Employee instance.
+
+    Key Differences
+
+        Lifecycle Dependency:
+            Composition: The contained object cannot exist without the container object (strong dependency).
+            Aggregation: The contained object can exist independently of the container object (weak dependency).
+
+        Creation and Ownership:
+            Composition: The container object is responsible for creating and managing the lifecycle of the contained object.
+            Aggregation: The contained object is created externally and passed to the container object.
+
+    Summary
+
+    Composition and Aggregation both establish a HAS-A relationship but differ in the strength and
+    nature of the relationship. Composition implies a strong, lifecycle-dependent relationship,
+    while Aggregation implies a weaker, more flexible relationship where the contained objects
+    can exist independently.
+
+

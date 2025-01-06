@@ -1,0 +1,73 @@
+Throwable_Exception_Error_hierarchy::::
+====================================
+
+java.lang.Throwable
+├── java.lang.Exception (Checked Exceptions)
+│   ├── java.lang.RuntimeException (Unchecked Exceptions)
+│   │   ├── java.lang.ArithmeticException
+│   │   ├── java.lang.ArrayIndexOutOfBoundsException
+│   │   ├── java.lang.ClassCastException
+│   │   ├── java.lang.IllegalArgumentException
+│   │   │   ├── java.lang.NumberFormatException
+│   │   ├── java.lang.IllegalStateException
+│   │   ├── java.lang.IndexOutOfBoundsException
+│   │   │   ├── java.lang.ArrayIndexOutOfBoundsException
+│   │   │   ├── java.lang.StringIndexOutOfBoundsException
+│   │   ├── java.lang.NullPointerException
+│   │   ├── java.lang.UnsupportedOperationException
+│   │   └── java.lang.concurrent.RejectedExecutionException
+│   ├── java.io.IOException
+│   │   ├── java.io.FileNotFoundException
+│   │   ├── java.io.EOFException
+│   │   ├── java.io.InterruptedIOException
+│   │   └── java.io.ObjectStreamException
+│   │       ├── java.io.InvalidClassException
+│   │       ├── java.io.InvalidObjectException
+│   │       ├── java.io.NotActiveException
+│   │       ├── java.io.NotSerializableException
+│   │       ├── java.io.OptionalDataException
+│   │       └── java.io.WriteAbortedException
+│   ├── java.sql.SQLException
+│   │   ├── java.sql.BatchUpdateException
+│   │   ├── java.sql.DataTruncation
+│   │   ├── java.sql.SQLClientInfoException
+│   │   ├── java.sql.SQLDataException
+│   │   ├── java.sql.SQLFeatureNotSupportedException
+│   │   ├── java.sql.SQLIntegrityConstraintViolationException
+│   │   ├── java.sql.SQLInvalidAuthorizationSpecException
+│   │   ├── java.sql.SQLNonTransientConnectionException
+│   │   ├── java.sql.SQLRecoverableException
+│   │   ├── java.sql.SQLSyntaxErrorException
+│   │   ├── java.sql.SQLTimeoutException
+│   │   └── java.sql.SQLTransientConnectionException
+│   ├── java.lang.ClassNotFoundException
+│   ├── java.lang.CloneNotSupportedException
+│   ├── java.lang.InterruptedException
+│   ├── java.lang.NoSuchMethodException
+│   ├── java.lang.InstantiationException
+│   ├── java.lang.IllegalAccessException
+│   └── javax.xml.parsers.ParserConfigurationException
+└── java.lang.Error
+    ├── java.lang.AssertionError
+    ├── java.lang.LinkageError
+    │   ├── java.lang.ClassCircularityError
+    │   ├── java.lang.ClassFormatError
+    │   ├── java.lang.NoClassDefFoundError
+    │   ├── java.lang.UnsupportedClassVersionError
+    │   ├── java.lang.AbstractMethodError
+    │   ├── java.lang.IllegalAccessError
+    │   ├── java.lang.IncompatibleClassChangeError
+    │   │   ├── java.lang.NoSuchFieldError
+    │   │   ├── java.lang.NoSuchMethodError
+    │   │   ├── java.lang.VerifyError
+    │   └── java.lang.UnsatisfiedLinkError
+    ├── java.lang.OutOfMemoryError
+    ├── java.lang.StackOverflowError
+    ├── java.lang.VirtualMachineError
+    │   ├── java.lang.InternalError
+    │   ├── java.lang.UnknownError
+    │   ├── java.lang.OutOfMemoryError
+    │   └── java.lang.StackOverflowError
+    └── java.lang.ThreadDeath
+
+

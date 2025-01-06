@@ -1,0 +1,156 @@
+Custom Exception::
+----------
+Creating custom exceptions in Java involves extending either the Exception class
+(for checked exceptions) or the RuntimeException class (for unchecked exceptions).
+This allows you to create specific exceptions tailored to your application's needs.
+
+Creating a Custom Checked Exception
+
+    Define the Custom Exception Class:
+    Extend the Exception class and provide constructors for different use cases.
+
+    public class CustomCheckedException extends Exception {
+        public CustomCheckedException() {
+            super();
+        }
+
+        public CustomCheckedException(String message) {
+            super(message);
+        }
+
+        public CustomCheckedException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public CustomCheckedException(Throwable cause) {
+            super(cause);
+        }
+    }
+
+Using the Custom Checked Exception:
+You need to declare the custom exception in the method signature
+and handle it using a try-catch block.
+
+public class CustomCheckedExceptionExample {
+    public static void main(String[] args) {
+        try {
+            validateAge(15);
+        } catch (CustomCheckedException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+    }
+
+    public static void validateAge(int age) throws CustomCheckedException {
+        if (age < 18) {
+            throw new CustomCheckedException("Age must be 18 or older");
+        }
+    }
+}
+
+
+
+Creating a Custom Unchecked Exception::::::::::::::::
+
+    Define the Custom Exception Class:
+    Extend the RuntimeException class and provide constructors.
+
+    public class CustomUncheckedException extends RuntimeException {
+        public CustomUncheckedException() {
+            super();
+        }
+
+        public CustomUncheckedException(String message) {
+            super(message);
+        }
+
+        public CustomUncheckedException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public CustomUncheckedException(Throwable cause) {
+            super(cause);
+        }
+    }
+
+Using the Custom Unchecked Exception:
+You can throw the custom exception without declaring it in the method signature.
+
+public class CustomUncheckedExceptionExample {
+    public static void main(String[] args) {
+        try {
+            validateNumber(-1);
+        } catch (CustomUncheckedException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+    }
+
+    public static void validateNumber(int number) {
+        if (number < 0) {
+            throw new CustomUncheckedException("Number must be non-negative");
+        }
+    }
+}
+
+
+Example with Custom Data:::
+
+In some cases, you might want to add extra fields to your custom exception to provide more context.
+
+    Define the Custom Exception Class with Extra Fields:
+
+    public class InsufficientFundsException extends Exception {
+        private double amount;
+
+        public InsufficientFundsException(double amount) {
+            super("Insufficient funds for transaction: " + amount);
+            this.amount = amount;
+        }
+
+        public double getAmount() {
+            return amount;
+        }
+    }
+
+
+Using the Custom Exception with Extra Fields:
+
+public class BankAccount {
+    private double balance;
+
+    public BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException(amount);
+        }
+        balance -= amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000.0);
+        try {
+            account.withdraw(1500.0);
+        } catch (InsufficientFundsException e) {
+            System.out.println("Exception caught: " + e.getMessage() + ". Amount: " + e.getAmount());
+        }
+    }
+}
+
+Summary
+
+    Checked Exception: Extend the Exception class.
+    Unchecked Exception: Extend the RuntimeException class.
+    Extra Fields: Add extra fields and provide constructors and getters to add
+    more context to your exceptions.
+
+Creating custom exceptions helps make your code more readable and
+ allows you to handle specific error conditions in a more controlled and meaningful way.
+
+
+
