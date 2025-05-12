@@ -25,7 +25,7 @@ public class Board {
             int end = (int) Math.floor(Math.random() * (max - min +1) + min); // 2
             //System.out.println("start: "+ start + " end: "+ end);
             //start > end
-            if(!hassSnakeOrLadderPresent(start)) {
+            if(!hasSnakeOrLadderPresent(start)) {
                 boardEntityMap.put(start, new Snake(start, end));
             }
 
@@ -37,14 +37,22 @@ public class Board {
 
         }
 
-        private boolean hasSnakeOrLadderPresent(int index) {
-            return boardEntityMap.containsKey(index);
-        }
+
 
 
 
 
     }
+    public boolean hasSnakeOrLadderPresent(int index) {
+        return boardEntityMap.containsKey(index);
+    }
+
+    public void printBoard(){
+        // print the board
+
+
+    }
+
 
 
     public int getDimension() {
