@@ -6,7 +6,7 @@ import java.util.Map;
 public class Board {
     private int dimension;
     private int cellCount;
-    private Map<Integer, BoardEntity> boardEntitiesMap; // this map will contain snakes and ladders
+    private Map<Integer, BoardEntity> boardEntityMap; // this map will contain snakes and ladders
 
     // Constructor
     public Board(int dimension) {
@@ -14,8 +14,32 @@ public class Board {
         this.cellCount = dimension * dimension;
 
         // Initialize n snakes and n ladders
-        boardEntitiesMap = new HashMap<>();
-        //Add n snake   start index is > end index.
+        boardEntityMap = new HashMap<>();
+        //Add n snake   ->start index is > end index.
+        for (int i=0; i< dimension; i++) {
+            int min= 2;
+            int max= cellCount-1;
+
+            int start = (int) Math.floor(Math.random() * (max - min +1) + min); //54
+            max = start - 1; // end index can lie between 2 and 53.
+            int end = (int) Math.floor(Math.random() * (max - min +1) + min); // 2
+            //System.out.println("start: "+ start + " end: "+ end);
+            //start > end
+            if(!hassSnakeOrLadderPresent(start)) {
+                boardEntityMap.put(start, new Snake(start, end));
+            }
+
+
+
+
+            //Add n ladder   ->start index is < end index.
+
+
+        }
+
+        private boolean hasSnakeOrLadderPresent(int index) {
+            return boardEntityMap.containsKey(index);
+        }
 
 
 
