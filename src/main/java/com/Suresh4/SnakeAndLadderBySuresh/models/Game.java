@@ -32,10 +32,10 @@ public class Game {
 
     }
 
-    public void makeMove(Player currentPlayer){
+    /*public void makeMove(Player currentPlayer){
         int diceNumber= DiceUtility.roll(numberOfDices);
 
-    }
+    }*/
 
 
 }

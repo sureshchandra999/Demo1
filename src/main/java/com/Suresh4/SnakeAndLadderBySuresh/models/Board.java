@@ -63,13 +63,13 @@ public class Board {
         this.dimension = dimension;
     }
 
-    public Map<Integer, BoardEntity> getBoardEntitiesMap() {
+    /*public Map<Integer, BoardEntity> getBoardEntitiesMap() {
         return boardEntitiesMap;
     }
 
     public void setBoardEntitiesMap(Map<Integer, BoardEntity> boardEntitiesMap) {
         this.boardEntitiesMap = boardEntitiesMap;
-    }
+    }*/
 }
 /*
 roll a dice

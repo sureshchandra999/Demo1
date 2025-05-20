@@ -1,0 +1,6 @@
+REGULAR : 870
+VIP : 950
+
+BOOKING DETAILS:
+BK1000 | BIKE | REGULAR | Start: 13:00 | Duration: 3h | Extra: 0h | Total: 180
+...
