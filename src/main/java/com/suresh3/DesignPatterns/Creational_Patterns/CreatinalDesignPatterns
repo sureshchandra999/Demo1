@@ -1,0 +1,284 @@
+Creation Design patterns
+========================
+Creation design patterns are a group of design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. These patterns increase flexibility and reuse of existing code.
+They are divided into class-creation patterns and object-creational patterns. Class-creation patterns use inheritance to vary the class that is instantiated, while object-creational patterns use delegation to get the job done. The following are the most common creation design patterns:
+1. Abstract Factory
+2. Builder
+3. Factory Method
+4. Prototype
+5. Singleton
+6. Object Pool
+7. Multiton
+8. Dependency Injection
+9. Service Locator
+10. Lazy Initialization
+11. Registry
+12. Thread Pool
+13. Value Object
+14. Data Transfer Object (DTO)
+15. Transfer Object
+16. Data Access Object (DAO)
+17. Repository
+18. Unit of Work
+19. Active Record
+20. Data Mapper
+21. Command
+
+
+Singleton Pattern
+=================
+The Singleton Pattern is a design pattern that restricts the instantiation of a class to one single instance. This is useful when exactly one object is needed to coordinate actions across the system. The Singleton Pattern is often used for logging, driver objects, caching, thread pools, and database connections.
+The Singleton Pattern is implemented by creating a class with a private constructor and a static method that returns the instance of the class. The instance is created only when it is requested for the first time, ensuring that only one instance of the class exists throughout the application.
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
+In this example, the `Singleton` class has a private constructor, which prevents other classes from instantiating it. The `getInstance` method checks if the instance is null and creates a new instance if it is. Otherwise, it returns the existing instance.
+This ensures that only one instance of the `Singleton` class is created, and it can be accessed globally through the `getInstance` method.
+The Singleton Pattern is a widely used design pattern in software development, especially in scenarios where a single instance of a class is required to control access to shared resources or provide a global point of access to certain functionalities.
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
+In this example, the `getInstance` method is synchronized to ensure that only one thread can access it at a time. This prevents multiple threads from creating multiple instances of the `Singleton` class in a multi-threaded environment.
+The Singleton Pattern is a widely used design pattern in software development, especially in scenarios where a single instance of a class is required to control access to shared resources or provide a global point of access to certain functionalities.
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+//Double-checked locking
+In this example, the `getInstance` method uses double-checked locking to ensure that only one instance of the `Singleton` class is created in a multi-threaded environment. The first check is done without synchronization for performance reasons, and the second check is done inside a synchronized block to ensure thread safety.
+The Singleton Pattern is a widely used design pattern in software development, especially in scenarios where a single instance of a class is required to control access to shared resources or provide a global point of access to certain functionalities.
+```java
+public class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+//Thread-safe Singleton with volatile
+In this example, the `instance` variable is declared as `volatile` to ensure that changes made to it are visible to all threads. This prevents issues related to instruction reordering and ensures that the Singleton instance is created safely in a multi-threaded environment.
+The Singleton Pattern is a widely used design pattern in software development, especially in scenarios where a single instance of a class is required to control access to shared resources or provide a global point of access to certain functionalities.
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+//Thread-safe Singleton with Bill Pugh Singleton Design Pattern
+In this example, the Singleton instance is created using a static inner helper class. The inner class is loaded only when it is referenced, ensuring that the Singleton instance is created only when needed. This approach is thread-safe and does not require synchronization.
+```java
+public class Singleton {
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    private static class SingletonHelper {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+}
+```
+//Thread-safe Singleton with Initialization-on-demand holder idiom
+In this example, the Singleton instance is created using a static inner helper class. The inner class is loaded only when it is referenced, ensuring that the Singleton instance is created only when needed. This approach is thread-safe and does not require synchronization.
+```java
+public class Singleton {
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    private static class SingletonHelper {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+}
+```
+//Thread-safe Singleton with Initialization-on-demand holder idiom
+In this example, the Singleton instance is created using a static inner helper class. The inner class is loaded only when it is referenced, ensuring that the Singleton instance is created only when needed. This approach is thread-safe and does not require synchronization.
+```java
+public class Singleton {
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    private static class SingletonHelper {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+}
+```
+//
+
+Building a Singleton with Enum
+In this example, the Singleton instance is created using an enum. This approach is thread-safe and ensures that only one instance of the Singleton class is created. The enum provides a simple and effective way to implement the Singleton pattern without the need for synchronization or complex code.
+```java
+public enum Singleton {
+    INSTANCE;
+
+    public void doSomething() {
+        // method implementation
+    }
+}
+```
+//Singleton with Enum
+In this example, the Singleton instance is created using an enum. This approach is thread-safe and ensures that only one instance of the Singleton class is created. The enum provides a simple and effective way to implement the Singleton pattern without the need for synchronization or complex code.
+```java
+public enum Singleton {
+    INSTANCE;
+
+    public void doSomething() {
+        // method implementation
+    }
+}
+```
+
+
+Factory Method Pattern
+=========================
+The Factory Method Pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created. This pattern is used when a class cannot anticipate the class of objects it must create or when subclasses want to specify the objects they create.
+The Factory Method Pattern defines a method for creating objects, which can be overridden by subclasses to create specific types of objects. This allows for greater flexibility and extensibility in the codebase.
+```java
+public abstract class Product {
+    public abstract void use();
+}
+public class ConcreteProductA extends Product {
+    @Override
+    public void use() {
+        System.out.println("Using ConcreteProductA");
+    }
+}
+public class ConcreteProductB extends Product {
+    @Override
+    public void use() {
+        System.out.println("Using ConcreteProductB");
+    }
+}
+public abstract class Creator {
+    public abstract Product factoryMethod();
+}
+public class ConcreteCreatorA extends Creator {
+    @Override
+    public Product factoryMethod() {
+        return new ConcreteProductA();
+    }
+}
+public class ConcreteCreatorB extends Creator {
+    @Override
+    public Product factoryMethod() {
+        return new ConcreteProductB();
+    }
+}
+```
+In this example, the `Product` class is an abstract class that defines the interface for products. The `ConcreteProductA` and `ConcreteProductB` classes are concrete implementations of the `Product` class. The `Creator` class is an abstract class that defines the factory method `factoryMethod`, which is overridden by the concrete creator classes `ConcreteCreatorA` and `ConcreteCreatorB` to create specific types of products.
+The Factory Method Pattern allows for the creation of objects without specifying the exact class of object that will be created. This promotes loose coupling and makes it easier to add new product types without modifying existing code.
+```java
+public abstract class Product {
+    public abstract void use();
+}
+public class ConcreteProductA extends Product {
+    @Override
+    public void use() {
+        System.out.println("Using ConcreteProductA");
+    }
+}
+public class ConcreteProductB extends Product {
+    @Override
+    public void use() {
+        System.out.println("Using ConcreteProductB");
+    }
+}
+public abstract class Creator {
+    public abstract Product factoryMethod();
+}
+public class ConcreteCreatorA extends Creator {
+    @Override
+    public Product factoryMethod() {
+        return new ConcreteProductA();
+    }
+}
+public class ConcreteCreatorB extends Creator {
+    @Override
+    public Product factoryMethod() {
+        return new ConcreteProductB();
+    }
+}
+```
+In this example, the `Product` class is an abstract class that defines the interface for products. The `ConcreteProductA` and `ConcreteProductB` classes are concrete implementations of the `Product` class. The `Creator` class is an abstract class that defines the factory method `factoryMethod`, which is overridden by the concrete creator classes `ConcreteCreatorA` and `ConcreteCreatorB` to create specific types of products.
+The Factory Method Pattern allows for the creation of objects without specifying the exact class of object that will be created. This promotes loose coupling and makes it easier to add new product types without modifying existing code.
+```java
