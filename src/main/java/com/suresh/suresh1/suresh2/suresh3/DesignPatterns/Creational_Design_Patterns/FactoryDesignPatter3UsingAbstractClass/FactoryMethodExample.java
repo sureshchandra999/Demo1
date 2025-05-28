@@ -1,6 +1,6 @@
 package com.suresh.suresh1.suresh2.suresh3.DesignPatterns.Creational_Design_Patterns.FactoryDesignPatter3UsingAbstractClass;
 
-//Client class
+//Client1 class
 public class FactoryMethodExample {
     public static void main(String[] args) {
         Factory factoryA = new ConcreteFactoryA();

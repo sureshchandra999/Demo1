@@ -687,5 +687,153 @@ An array is a data structure that stores a fixed-size sequential collection of e
     - LinkedList: You can search for an element in a LinkedList using a linear search.
 24. Reversing:
 
+    - ArrayList: You can reverse an ArrayList using the Collections.reverse() method.
+    - LinkedList: You can reverse a LinkedList by changing the next and previous references of each node or using the Collections.reverse() method.
+25. Example of Reversing:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      Collections.reverse(list);
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      Collections.reverse(list);
+      ```
+26. Example of Searching:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      int target = 2;
+      boolean found = list.contains(target);
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      int target = 2;
+      boolean found = list.contains(target);
+      ```
+27. Example of Traversing:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      for (int i : list) {
+          System.out.println(i);
+      }
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      for (int i : list) {
+          System.out.println(i);
+      }
+      ```
+28. Example of Insertion:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(1);
+      list.add(2);
+      int index = 1; // position to insert
+      int value = 10; // value to insert
+      list.add(index, value);
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      list.add(1);
+      list.add(2);
+      int index = 1; // position to insert
+      int value = 10; // value to insert
+      list.add(index, value);
+      ```
+29. Example of Deletion:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      int index = 1; // position to delete
+      list.remove(index);
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      int index = 1; // position to delete
+      list.remove(index);
+      ```
+30. Example of Sorting:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(5);
+      list.add(3);
+      list.add(1);
+      list.add(4);
+      list.add(2);
+      Collections.sort(list);
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      list.add(5);
+      list.add(3);
+      list.add(1);
+      list.add(4);
+      list.add(2);
+      Collections.sort(list);
+      ```
+31. Example of Conversion:
+    - ArrayList to LinkedList:
+      ```java
+      ArrayList<Integer> arrayList = new ArrayList<>();
+      arrayList.add(1);
+      arrayList.add(2);
+      arrayList.add(3);
+      LinkedList<Integer> linkedList = new LinkedList<>(arrayList);
+      ```
+    - LinkedList to ArrayList:
+      ```java
+      LinkedList<Integer> linkedList = new LinkedList<>();
+      linkedList.add(1);
+      linkedList.add(2);
+      linkedList.add(3);
+      ArrayList<Integer> arrayList = new ArrayList<>(linkedList);
+      ```
+32. Example of Default Values:
+    - ArrayList:
+      ```java
+      ArrayList<Integer> list = new ArrayList<>();
+      // empty until elements are added
+      ```
+    - LinkedList:
+      ```java
+      LinkedList<Integer> list = new LinkedList<>();
+      // empty until elements are added
+      ```
+
+
 
 
