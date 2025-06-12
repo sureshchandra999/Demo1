@@ -3,7 +3,7 @@ package com.suresh.STRING_Questions;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//Find the Last Non-repeatable Character in string without Using Stream API
+//Find the Last Non-repeatable Character in string without Using Stream API_REST_SOAP
 public class LastNonRepeatableCharacterInString {
     public static void main(String[] args) {
         String s="Hi There"; // O/P: r

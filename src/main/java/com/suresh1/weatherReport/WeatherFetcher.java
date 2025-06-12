@@ -7,7 +7,7 @@ import java.net.URL;
 
 public class WeatherFetcher {
 
-    private static final String API_KEY = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
+    private static final String API_KEY = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API_REST_SOAP key
     private static final String API_URL = "http://api.openweathermap.org/data/2.5/weather";
 
     public static void main(String[] args) {

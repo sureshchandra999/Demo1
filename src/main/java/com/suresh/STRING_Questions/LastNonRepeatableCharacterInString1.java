@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-//Find the Last Non-repeatable Character in string Using Stream API
+//Find the Last Non-repeatable Character in string Using Stream API_REST_SOAP
 public class LastNonRepeatableCharacterInString1 {
 
     public static void main(String[] args) {

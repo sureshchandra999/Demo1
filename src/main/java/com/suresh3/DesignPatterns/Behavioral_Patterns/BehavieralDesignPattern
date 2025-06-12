@@ -12,20 +12,20 @@ Examples of behavioral design patterns include:
 - Iterator
 - Mediator
 - Memento
-- Observer
+- Observer (Important)
 - State
-- Strategy
+- Strategy (Important)
 - Template Method
 - Visitor
 - Null Object
 - Specification
-- Publish-Subscribe
+- Publish-Subscribe (Important)
 - Event Queue
 - Event Sourcing
-- CQRS (Command Query Responsibility Segregation)
+- CQRS (Command Query Responsibility Segregation) (Important)
 - State Machine
 - Event Sourcing
-- Saga Pattern
+- Saga Pattern (Orchestration and Choreography) (Important)
 - Event Aggregator
 - Event Bus
 - Event Stream
@@ -137,7 +137,7 @@ The use cases of the Observer pattern are numerous and can be applied in various
 
 
 
-Example: Strategy Pattern
+Example: Strategy Pattern :
 ================================
 The Strategy pattern is a behavioral design pattern that defines a family of algorithms, encapsulates each one, and makes them interchangeable.
 The Strategy pattern lets the algorithm vary independently from clients that use it.
