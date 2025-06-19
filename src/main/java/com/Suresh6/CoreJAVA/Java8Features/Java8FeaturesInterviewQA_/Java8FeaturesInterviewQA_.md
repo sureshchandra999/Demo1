@@ -13,6 +13,8 @@ Java 8 introduced several key features, including:
 - Nashorn JavaScript engine
 - Type annotations
 - CompletableFuture for asynchronous programming
+
+
 2. What is a lambda expression in Java 8?
 A lambda expression is a concise way to represent an anonymous function (a function without a name) that can be passed around as if it were an object. It allows you to write instances of single-method interfaces (functional interfaces) in a more readable and less verbose manner. The syntax of a lambda expression is `(parameters) -> expression` or `(parameters) -> { statements; }`.
 3. What is a functional interface?

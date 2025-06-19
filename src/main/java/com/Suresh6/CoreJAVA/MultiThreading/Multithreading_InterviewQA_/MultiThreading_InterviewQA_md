@@ -1,0 +1,59 @@
+
+Multithreading interview Questions and answers:
+====================================================
+1. What is multithreading?
+   - Multithreading is a programming technique that allows multiple threads to run concurrently within a single process, enabling parallel execution of tasks.
+
+2. what is a thread?
+   - A thread is the smallest unit of processing that can be scheduled by an operating system. It is a lightweight process that shares the same memory space with other threads in the same process.
+3. What is the difference between a process and a thread?
+    - A process is an independent program that runs in its own memory space, while a thread is a smaller unit of a process that shares the same memory space with other threads. Threads within the same process can communicate more easily than processes.
+4. What are the advantages of multithreading?
+    - Advantages of multithreading include improved application performance, better resource utilization, responsiveness in user interfaces, and the ability to perform multiple tasks simultaneously without blocking the main thread.
+
+
+5. what is deadlock?
+   - A deadlock is a situation in which two or more threads are blocked forever, each waiting for the other to release a resource. This can occur when threads hold resources and wait for resources held by others.
+6. How can deadlocks be avoided?
+    - Deadlocks can be avoided by using techniques such as resource ordering, deadlock detection algorithms, timeout mechanisms, and ensuring that threads acquire resources in a consistent order.
+
+
+7. what is completableFuture?
+=================================================
+   - CompletableFuture is a class in Java that represents a future result of an asynchronous computation. It allows you to write non-blocking code and provides methods to handle the result of the computation when it becomes available.
+8. What is the difference between synchronized and volatile in Java?
+=====================================================================
+Ans: Synchronized is used to ensure that only one thread can access a block of code or method at a time, providing mutual exclusion.
+Volatile, on the other hand, is used to indicate that a variable's value may be changed by different threads, ensuring visibility of changes across threads without locking.
+
+9. What is the purpose of the `join()` method in multithreading?
+   - The `join()` method is used to wait for a thread to complete its execution. When one thread calls `join()` on another thread, it blocks the calling thread until the specified thread has finished executing.
+10. What is a thread pool?
+    - A thread pool is a collection of pre-initialized threads that can be reused to execute multiple tasks concurrently. It helps manage the number of active threads, reduces the overhead of thread creation, and improves performance in applications with many short-lived tasks.
+11. What is the difference between `wait()` and `sleep()` in Java?
+    - The `wait()` method is used for inter-thread communication, allowing a thread to release the lock it holds and wait until another thread notifies it. It must be called within a synchronized block. The `sleep()` method, on the other hand, pauses the execution of the current thread for a specified duration without releasing any locks.
+12. What is the purpose of the `notify()` and `notifyAll()` methods in Java?
+    - The `notify()` method wakes up a single thread that is waiting on the object's monitor (if any). The `notifyAll()` method wakes up all threads that are waiting on the object's monitor. Both methods must be called within a synchronized block and are used for inter-thread communication.
+13. What is the Executor framework in Java?
+============================================
+    - The Executor framework in Java provides a high-level API for managing and controlling thread execution. It includes interfaces like `Executor`, `ExecutorService`, and `ScheduledExecutorService`, which allow you to submit tasks for execution, manage thread pools, and schedule tasks for future execution.
+14. What is the difference between `Callable` and `Runnable` in Java?
+    - `Runnable` is a functional interface that represents a task that can be executed by a thread but does not return a result. `Callable`, on the other hand, is similar to `Runnable` but can return a result and can throw checked exceptions. `Callable` is often used with the `Future` interface to retrieve results from asynchronous computations.
+15. What is the purpose of the `ForkJoinPool` in Java?
+    - The `ForkJoinPool` is a specialized implementation of the `ExecutorService` designed for parallel processing of tasks that can be broken down into smaller subtasks. It uses a work-stealing algorithm to efficiently distribute tasks among available threads, making it suitable for divide-and-conquer algorithms and parallel computations.
+16. What is the `CountDownLatch` in Java?
+===========================================
+    - `CountDownLatch` is a synchronization aid that allows one or more threads to wait until a set of operations being performed by other threads completes. It is initialized with a count, and threads can call `await()` to block until the count reaches zero, which happens when other threads call `countDown()` to decrement the count.
+17. What is the `Semaphore` in Java?
+    - `Semaphore` is a synchronization aid that controls access to a shared resource by maintaining a set of permits. Threads can acquire permits to access the resource and release them when done. If no permits are available, threads will block until a permit becomes available. It is useful for limiting the number of concurrent accesses to a resource.
+18. What is the `ReentrantLock` in Java?
+    - `ReentrantLock` is a class in Java that provides a more flexible and powerful locking mechanism than the built-in synchronized blocks. It allows for features like try-locking, timed locking, and the ability to interrupt waiting threads. It also supports reentrant behavior, meaning a thread can acquire the lock multiple times without causing a deadlock.
+19. What is the `ThreadLocal` class in Java?
+    - `ThreadLocal` is a class in Java that provides thread-local variables, which are variables that are specific to each thread. Each thread has its own independent copy of the variable, allowing for data isolation and preventing interference between threads. It is often used to store user session data or other context-specific information.
+20. What is the `CyclicBarrier` in Java?
+    - `CyclicBarrier` is a synchronization aid that allows a set of threads to wait for each other to reach a common barrier point before proceeding. It is initialized with a count, and when the specified number of threads calls `await()`, they are all released to continue execution. It can be reused after all threads have passed the barrier, hence the name "cyclic."
+21. What is the `Exchanger` in Java?
+    - `Exchanger` is a synchronization point where two threads can exchange data. Each thread calls the `exchange()` method, which blocks until both threads have called it. Once both threads reach the exchange point, they can swap their data and continue execution. It is useful for scenarios where two threads need to synchronize and share information.
+
+
+
